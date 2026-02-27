@@ -2,7 +2,59 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="covey-matrix">
+                <!-- Row 1: Title inside matrix -->
+                <div class="row covey-row covey-title-row">
+                    <div class="col-12 text-center covey-title">
+                        Stephen Covey's Time Management Matrix
+                    </div>
+                </div>
+
+                <!-- Row 2: blank | Urgent | Not Urgent -->
+                <div class="row covey-row">
+                    <div class="col-2 covey-cell covey-empty"></div>
+                    <div class="col-5 covey-cell text-center covey-header">
+                        Urgent
+                    </div>
+                    <div class="col-5 covey-cell text-center covey-header">
+                        Not Urgent
+                    </div>
+                </div>
+
+                <!-- Row 3: Important | Quadrant 1 | Quadrant 2 -->
+                <div class="row covey-row">
+                    <div class="col-2 covey-cell covey-side">
+                        <span>Important</span>
+                    </div>
+                    <div class="col-5 covey-cell">
+                        <div class="covey-quadrant-title">Quadrant 1</div>
+                        <!-- future items go here -->
+                    </div>
+                    <div class="col-5 covey-cell">
+                        <div class="covey-quadrant-title">Quadrant 2</div>
+                        <!-- future items go here -->
+                    </div>
+                </div>
+
+                <!-- Row 4: Not Important | Quadrant 3 | Quadrant 4 -->
+                <div class="row covey-row">
+                    <div class="col-2 covey-cell covey-side">
+                        <span>Not Important</span>
+                    </div>
+                    <div class="col-5 covey-cell">
+                        <div class="covey-quadrant-title">Quadrant 3</div>
+                        <!-- future items go here -->
+                    </div>
+                    <div class="col-5 covey-cell">
+                        <div class="covey-quadrant-title">Quadrant 4</div>
+                        <!-- future items go here -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
