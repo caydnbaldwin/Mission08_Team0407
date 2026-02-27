@@ -29,3 +29,89 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+/* Covey Matrix CSS */
+
+.covey-matrix {
+  background-color: #e6d39a;  /* beige like the graphic */
+  border: 4px solid #000;
+  border-radius: 16px;
+  padding: 24px 40px 32px;
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+/* Common row wrapper inside matrix */
+.covey-row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Title row */
+.covey-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+/* Base cell styling: outlines rows & columns */
+.covey-cell {
+  border: 3px solid #000;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+}
+
+/* Remove border between outer box and top of first row */
+.covey-title-row .covey-title {
+  padding-bottom: 12px;
+}
+
+/* Top header cells (Urgent / Not Urgent) */
+.covey-header {
+  font-weight: bold;
+  font-size: 1.4rem;
+  justify-content: center;
+}
+
+/* Left-side labels (horizontal) */
+.covey-side {
+  justify-content: center;
+  text-align: center;
+  padding: 16px 8px;
+}
+
+.covey-side span {
+  display: block;
+  font-weight: bold;
+  font-size: 1.1rem;
+  line-height: 1.2;
+  white-space: normal;   /* allow wrapping */
+}
+
+/* Quadrant titles */
+.covey-quadrant-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Make the grid look cleaner: ensure consistent height */
+.covey-row:nth-child(2) .covey-cell {
+  min-height: 80px;   /* header row */
+}
+
+.covey-row:nth-child(3) .covey-cell,
+.covey-row:nth-child(4) .covey-cell {
+  min-height: 100px;  /* quadrant rows */
+}
+
+/* Optional: center text in quadrant cells vertically a bit higher */
+.covey-row:nth-child(3) .covey-cell,
+.covey-row:nth-child(4) .covey-cell {
+  align-items: flex-start;
+  padding-top: 24px;
+}
+
+/* Empty top-left cell: keep border but no content */
+.covey-empty {
+  background: transparent;
+}
