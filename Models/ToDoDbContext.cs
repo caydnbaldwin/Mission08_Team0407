@@ -2,11 +2,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Mission8Assignment.Models
 {
+    // Bridge between the C# models and the SQLite database — injected into repositories via DI
     public class ToDoDbContext : DbContext
     {
         public ToDoDbContext(DbContextOptions<ToDoDbContext> options) : base(options) { }
 
+        // Maps TaskModel to the Tasks table in the database
         public DbSet<TaskModel> Tasks { get; set; }
+
+        // Maps Category to the Categories lookup table
         public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

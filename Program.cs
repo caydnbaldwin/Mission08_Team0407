@@ -6,11 +6,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// Register the SQLite database context using the connection string from appsettings.json
 builder.Services.AddDbContext<ToDoDbContext>(options =>
 {
     options.UseSqlite(builder.Configuration["ConnectionStrings:ToDoConnection"]);
 });
 
+// Give each HTTP request its own repository instance (Scoped lifetime)
 builder.Services.AddScoped<IToDoRepository, EFToDoRepository>();
 
 var app = builder.Build();

@@ -144,3 +144,13 @@ body {
   font-size: 1rem;
   line-height: 1.4;
 }
+
+/* Task links — inherit the matrix text color and remove default underline */
+.covey-task-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.covey-task-link:hover {
+  text-decoration: underline;
+}

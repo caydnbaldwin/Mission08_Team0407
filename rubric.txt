@@ -1,0 +1,66 @@
+Program Compiles and Runs
+Performance levels:	Score:
+Yes	5
+No	0
+Database Set Up Correctly Using Repository Pattern
+Performance levels:	Score:
+Yes	10
+Database exists and contains all the specified fields, and is set up using the Repository Pattern.
+Missing Category Table	5
+Database exists, but categories have not been broken out into separate table or the database does not use the Repository Pattern.
+Missing Some Data	5
+Database exists, but some of the listed information is missing.
+No	0
+Database does not exist.
+Ability to Enter Tasks
+Performance levels:	Score:
+Yes	5
+App allows the user to enter new tasks and stores them in the database.
+Partially developed	2.5
+User can enter tasks, but they are not stored in the database.
+No	0
+App does not allow the user to enter tasks.
+App Lists Out Tasks by Quadrants
+Performance levels:	Score:
+Yes	10
+App lists out tasks in a quadrant format, as per the instructions.
+Partial	5
+App lists tasks, but not in a quadrant view.
+No	0
+App does not list tasks.
+Ability to Edit Tasks
+Performance levels:	Score:
+Yes	5
+App provides ability to edit the listed tasks.
+Partial	2.5
+Delete task functionality is not working correctly.
+No	0
+App does not provide the ability to edit the listed tasks.
+Ability to Delete Tasks
+Performance levels:	Score:
+Yes	5
+App provides ability to delete the listed tasks.
+Partial	2.5
+Delete task functionality is not working correctly.
+No	0
+App does not provide ability to delete tasks.
+Task List Only Displays Uncompleted Tasks
+Performance levels:	Score:
+Yes	2.5
+Task list only shows tasks that have not been completed yet.
+No	0
+Task list shows completed tasks.
+Category is Selected via a Dropdown Box
+Performance levels:	Score:
+Yes	2.5
+The user chooses a category by using a dropdown box.
+No	0
+The user has to type manually the category.
+Code is Clean
+Performance levels:	Score:
+Yes	5
+Code looks good and is readable (good spacing, indentation, commenting, etc.)
+Partial	2.5
+Code has some issues with readability.
+No	0
+Code has significant readability problems.
