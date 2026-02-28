@@ -2,8 +2,6 @@
     ViewData["Title"] = "Home Page";
 }
 
-@model IEnumerable<Mission8Assignment.Models.TaskModel>
-
 <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -37,17 +35,17 @@
                         <div class="covey-task-list">
                             @if (ViewBag.Tasks != null)
                             {
-                                var quadrant1Tasks = ((IEnumerable<Mission8Assignment.Models.TaskModel>)ViewBag.Tasks)
-                                    .Where(t => t.Quadrant == 1);
-
-                                @foreach (var task in quadrant1Tasks)
+                                @foreach (Mission8Assignment.Models.TaskModel task in ViewBag.Tasks)
                                 {
-                                    <a class="covey-task-item covey-task-link"
-                                       asp-controller="Home"
-                                       asp-action="Task"
-                                       asp-route-id="@task.TaskId">
-                                        @task.TaskName
-                                    </a>
+                                    @if (task.Quadrant == 1)
+                                    {
+                                        <a class="covey-task-item covey-task-link"
+                                           asp-controller="Home"
+                                           asp-action="Task"
+                                           asp-route-id="@task.TaskId">
+                                            @task.TaskName
+                                        </a>
+                                    }
                                 }
                             }
                         </div>
@@ -58,17 +56,17 @@
                         <div class="covey-task-list">
                             @if (ViewBag.Tasks != null)
                             {
-                                var quadrant2Tasks = ((IEnumerable<Mission8Assignment.Models.TaskModel>)ViewBag.Tasks)
-                                    .Where(t => t.Quadrant == 2);
-
-                                @foreach (var task in quadrant2Tasks)
+                                @foreach (Mission8Assignment.Models.TaskModel task in ViewBag.Tasks)
                                 {
-                                    <a class="covey-task-item covey-task-link"
-                                       asp-controller="Home"
-                                       asp-action="Task"
-                                       asp-route-id="@task.TaskId">
-                                        @task.TaskName
-                                    </a>
+                                    @if (task.Quadrant == 2)
+                                    {
+                                        <a class="covey-task-item covey-task-link"
+                                           asp-controller="Home"
+                                           asp-action="Task"
+                                           asp-route-id="@task.TaskId">
+                                            @task.TaskName
+                                        </a>
+                                    }
                                 }
                             }
                         </div>
@@ -86,17 +84,17 @@
                         <div class="covey-task-list">
                             @if (ViewBag.Tasks != null)
                             {
-                                var quadrant3Tasks = ((IEnumerable<Mission8Assignment.Models.TaskModel>)ViewBag.Tasks)
-                                    .Where(t => t.Quadrant == 3);
-
-                                @foreach (var task in quadrant3Tasks)
+                                @foreach (Mission8Assignment.Models.TaskModel task in ViewBag.Tasks)
                                 {
-                                    <a class="covey-task-item covey-task-link"
-                                       asp-controller="Home"
-                                       asp-action="Task"
-                                       asp-route-id="@task.TaskId">
-                                        @task.TaskName
-                                    </a>
+                                    @if (task.Quadrant == 3)
+                                    {
+                                        <a class="covey-task-item covey-task-link"
+                                           asp-controller="Home"
+                                           asp-action="Task"
+                                           asp-route-id="@task.TaskId">
+                                            @task.TaskName
+                                        </a>
+                                    }
                                 }
                             }
                         </div>
@@ -107,17 +105,17 @@
                         <div class="covey-task-list">
                             @if (ViewBag.Tasks != null)
                             {
-                                var quadrant4Tasks = ((IEnumerable<Mission8Assignment.Models.TaskModel>)ViewBag.Tasks)
-                                    .Where(t => t.Quadrant == 4);
-
-                                @foreach (var task in quadrant4Tasks)
+                                @foreach (Mission8Assignment.Models.TaskModel task in ViewBag.Tasks)
                                 {
-                                    <a class="covey-task-item covey-task-link"
-                                       asp-controller="Home"
-                                       asp-action="Task"
-                                       asp-route-id="@task.TaskId">
-                                        @task.TaskName
-                                    </a>
+                                    @if (task.Quadrant == 4)
+                                    {
+                                        <a class="covey-task-item covey-task-link"
+                                           asp-controller="Home"
+                                           asp-action="Task"
+                                           asp-route-id="@task.TaskId">
+                                            @task.TaskName
+                                        </a>
+                                    }
                                 }
                             }
                         </div>
