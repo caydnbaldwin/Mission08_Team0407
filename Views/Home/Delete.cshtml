@@ -1,6 +1,65 @@
+@model Mission8Assignment.Models.TaskModel
+
 @{
     ViewData["Title"] = "Delete Task";
 }
 
-<h2>Confirm Deletion</h2>
-<p>This action cannot be undone.</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+
+            <div class="row mb-2">
+                <div class="col">
+                    <h2 class="mb-1">Confirm Deletion</h2>
+                    <p class="text-muted mb-0">This action cannot be undone.</p>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <h5 class="card-title mb-0">@Model.TaskName</h5>
+                                </div>
+                            </div>
+
+                            <div class="row mb-1">
+                                <div class="col-4 col-sm-3 fw-bold">Due Date</div>
+                                <div class="col-8 col-sm-9">
+                                    @((Model.DueDate.HasValue) ? Model.DueDate.Value.ToString("yyyy-MM-dd") : "None")
+                                </div>
+                            </div>
+
+                            <div class="row mb-1">
+                                <div class="col-4 col-sm-3 fw-bold">Quadrant</div>
+                                <div class="col-8 col-sm-9">@Model.Quadrant</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4 col-sm-3 fw-bold">Category</div>
+                                <div class="col-8 col-sm-9">@Model.Category?.CategoryName</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <form method="post" asp-action="Delete" asp-controller="Home" class="d-flex flex-wrap gap-2">
+                        <input type="hidden" asp-for="TaskId" />
+
+                        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+
+                        <a asp-action="Task" asp-controller="Home" asp-route-id="@Model.TaskId" class="btn btn-secondary">Cancel</a>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
