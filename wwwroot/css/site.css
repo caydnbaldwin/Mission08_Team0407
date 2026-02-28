@@ -18,7 +18,15 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+  margin-bottom: 0;
+}
+
+/* Footer styling - smaller */
+.footer {
+  padding: 4px 0;
+  font-size: 0.875rem;  
+  line-height: 1.2;
+  margin-top: auto;
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {

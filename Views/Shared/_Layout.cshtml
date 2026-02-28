@@ -1,65 +1,52 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"] - Covey Task Manager</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
-
-    <!-- Site CSS -->
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/Mission08_Team0407.styles.css" asp-append-version="true"/>
 </head>
-
 <body>
-
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-
-            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
-                Covey Task Manager
-            </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Covey Task Manager</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <div class="collapse navbar-collapse" id="navMenu">
-                <ul class="navbar-nav ms-auto">
-
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Home" asp-action="Index">
-                            Quadrants
-                        </a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Quadrants</a>
                     </li>
-
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Home" asp-action="Add">
-                            Add Task
-                        </a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Add">Add Task</a>
                     </li>
-
                 </ul>
             </div>
-
         </div>
     </nav>
-
-    <!-- MAIN CONTENT -->
-    <div class="container mt-4">
+</header>
+<div class="container">
+    <main role="main" class="pb-3">
         @RenderBody()
+    </main>
+</div>
+
+<footer class="border-top footer">
+    <div class="container">
+        &copy; 2026 - Covey Task Manager
     </div>
-
-    <!-- FOOTER -->
-    <footer class="text-center mt-5 mb-3 text-muted">
-        <small>Mission 8 — Covey Time Management</small>
-    </footer>
-
-    <!-- Bootstrap JS -->
-    <script src="~/lib/bootstrap/js/bootstrap.bundle.js"></script>
-
+</footer>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<!-- validation scripts from jquery library - allows validation messages to appear in red beneath the applicable field instead of at the bottom of the form -->
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
