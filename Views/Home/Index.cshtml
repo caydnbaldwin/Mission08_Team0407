@@ -2,6 +2,8 @@
     ViewData["Title"] = "Home Page";
 }
 
+@model IEnumerable<Mission8Assignment.Models.TaskModel>
+
 <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -29,13 +31,33 @@
                     <div class="col-2 covey-cell covey-side">
                         <span>Important</span>
                     </div>
-                    <div class="col-5 covey-cell">
+                    <div class="col-5 covey-cell covey-quadrant-cell">
                         <div class="covey-quadrant-title">Quadrant 1</div>
-                        <!-- future items go here -->
+                        <div class="covey-task-list">
+                            @if (ViewBag.Tasks != null)
+                            {
+                                var quadrant1Tasks = ((IEnumerable<Mission8Assignment.Models.TaskModel>)ViewBag.Tasks)
+                                    .Where(t => t.Quadrant == 1);
+                                @foreach (var task in quadrant1Tasks)
+                                {
+                                    <div class="covey-task-item">@task.TaskName</div>
+                                }
+                            }
+                        </div>
                     </div>
-                    <div class="col-5 covey-cell">
+                    <div class="col-5 covey-cell covey-quadrant-cell">
                         <div class="covey-quadrant-title">Quadrant 2</div>
-                        <!-- future items go here -->
+                        <div class="covey-task-list">
+                            @if (ViewBag.Tasks != null)
+                            {
+                                var quadrant2Tasks = ((IEnumerable<Mission8Assignment.Models.TaskModel>)ViewBag.Tasks)
+                                    .Where(t => t.Quadrant == 2);
+                                @foreach (var task in quadrant2Tasks)
+                                {
+                                    <div class="covey-task-item">@task.TaskName</div>
+                                }
+                            }
+                        </div>
                     </div>
                 </div>
 
@@ -44,13 +66,33 @@
                     <div class="col-2 covey-cell covey-side">
                         <span>Not Important</span>
                     </div>
-                    <div class="col-5 covey-cell">
+                    <div class="col-5 covey-cell covey-quadrant-cell">
                         <div class="covey-quadrant-title">Quadrant 3</div>
-                        <!-- future items go here -->
+                        <div class="covey-task-list">
+                            @if (ViewBag.Tasks != null)
+                            {
+                                var quadrant3Tasks = ((IEnumerable<Mission8Assignment.Models.TaskModel>)ViewBag.Tasks)
+                                    .Where(t => t.Quadrant == 3);
+                                @foreach (var task in quadrant3Tasks)
+                                {
+                                    <div class="covey-task-item">@task.TaskName</div>
+                                }
+                            }
+                        </div>
                     </div>
-                    <div class="col-5 covey-cell">
+                    <div class="col-5 covey-cell covey-quadrant-cell">
                         <div class="covey-quadrant-title">Quadrant 4</div>
-                        <!-- future items go here -->
+                        <div class="covey-task-list">
+                            @if (ViewBag.Tasks != null)
+                            {
+                                var quadrant4Tasks = ((IEnumerable<Mission8Assignment.Models.TaskModel>)ViewBag.Tasks)
+                                    .Where(t => t.Quadrant == 4);
+                                @foreach (var task in quadrant4Tasks)
+                                {
+                                    <div class="covey-task-item">@task.TaskName</div>
+                                }
+                            }
+                        </div>
                     </div>
                 </div>
 
