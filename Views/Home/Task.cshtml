@@ -57,11 +57,16 @@
         @(Model.TaskId == 0 ? "Add Task" : "Save Changes")
     </button>
 
-    <a asp-action="Index" asp-controller="Home" class="btn btn-secondary">
-        Cancel
-    </a>
+    <a asp-action="Index" asp-controller="Home" class="btn btn-secondary">Cancel</a>
+
+    @if (Model.TaskId != 0)
+    {
+        <a asp-action="Delete"
+            asp-controller="Home"
+            asp-route-id="@Model.TaskId"
+            class="btn btn-danger ms-2">
+            Delete Task
+        </a>
+    }
 
 </form>
-
-<!-- @section Scripts { -->
-<!-- <partial name="_ValidationScriptsPartial" /> } --> 
