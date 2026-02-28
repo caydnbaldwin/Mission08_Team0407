@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Mission8Assignment.Models;
 using System.Diagnostics;
 
@@ -19,6 +20,16 @@ namespace Mission8Assignment.Controllers
                 .ToList();
 
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult Task()
+        {
+            ViewBag.Categories = new SelectList(
+                _repo.Categories.OrderBy(category => category.CategoryId)
+            );
+
+            return View(new TaskModel());
         }
     }
 }
