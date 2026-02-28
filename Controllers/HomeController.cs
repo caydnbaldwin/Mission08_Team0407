@@ -104,7 +104,7 @@ namespace Mission8Assignment.Controllers
                 );
 
                 //show hydrated form again
-                return View(task);
+                return View("Task", task);
             }
         }
 

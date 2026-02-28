@@ -1,58 +1,68 @@
-﻿@model TaskModel
+﻿@model Mission8Assignment.Models.TaskModel
 
 @{
-    ViewData["Title"] = "Edit Task";
+    ViewData["Title"] = Model.TaskId == 0 ? "Add Task" : "Edit Task";
 }
 
-<div class="row justify-content-center">
-    <div class="col-md-6">
+<h2 class="mb-4">
+    @(Model.TaskId == 0 ? "Add New Task" : "Edit Task")
+</h2>
 
-        <h2 class="mb-4">Edit Task</h2>
+<form method="post"
+      asp-action="@(Model.TaskId == 0 ? "Add" : "Edit")"
+      asp-controller="Home">
 
-        <form method="post" asp-action="Edit">
+    <input type="hidden" asp-for="TaskId" />
 
-            <input type="hidden" asp-for="TaskId" />
-
-            <div class="mb-3">
-                <label class="form-label">Task</label>
-                <input asp-for="TaskName" class="form-control" required />
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">Due Date</label>
-                <input asp-for="DueDate" type="date" class="form-control" />
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">Quadrant</label>
-                <select asp-for="Quadrant" class="form-select" required>
-                    <option value="">Select Quadrant</option>
-                    <option value="1">Quadrant I</option>
-                    <option value="2">Quadrant II</option>
-                    <option value="3">Quadrant III</option>
-                    <option value="4">Quadrant IV</option>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">Category</label>
-                <select asp-for="CategoryId"
-                        class="form-select"
-                        asp-items="ViewBag.Categories">
-                    <option value="">Select Category</option>
-                </select>
-            </div>
-
-            <div class="form-check mb-3">
-                <input asp-for="Completed" class="form-check-input" />
-                <label class="form-check-label">Completed</label>
-            </div>
-
-            <button type="submit" class="btn btn-primary">
-                Update Task
-            </button>
-
-        </form>
-
+    <div class="mb-3">
+        <label asp-for="TaskName" class="form-label"></label>
+        <input asp-for="TaskName" class="form-control" />
+        <span asp-validation-for="TaskName" class="text-danger"></span>
     </div>
-</div>
+
+    <div class="mb-3">
+        <label asp-for="DueDate" class="form-label"></label>
+        <input asp-for="DueDate" type="date" class="form-control" />
+        <span asp-validation-for="DueDate" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Quadrant" class="form-label"></label>
+        <select asp-for="Quadrant" class="form-select" required>
+            <option value="">Select Quadrant</option>
+            <option value="1">Quadrant 1</option>
+            <option value="2">Quadrant 2</option>
+            <option value="3">Quadrant 3</option>
+            <option value="4">Quadrant 4</option>
+        </select>
+        <span asp-validation-for="Quadrant" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="CategoryId" class="form-label"></label>
+        <select asp-for="CategoryId"
+                asp-items="ViewBag.Categories"
+                class="form-select">
+            <option value="">Select Category</option>
+        </select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+
+    <div class="form-check mb-3">
+        <input asp-for="Completed" class="form-check-input" />
+        <label asp-for="Completed" class="form-check-label"></label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        @(Model.TaskId == 0 ? "Add Task" : "Save Changes")
+    </button>
+
+    <a asp-action="Index" asp-controller="Home" class="btn btn-secondary">
+        Cancel
+    </a>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
