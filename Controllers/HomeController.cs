@@ -36,7 +36,7 @@ namespace Mission8Assignment.Controllers
             );
 
             // show empty form
-            return View(new TaskModel());
+            return View("Task", new TaskModel());
         }
 
         // add task
