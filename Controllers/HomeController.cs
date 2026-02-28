@@ -36,7 +36,7 @@ namespace Mission8Assignment.Controllers
             );
 
             // show empty form
-            return View(new TaskModel());
+            return View("Task", new TaskModel());
         }
 
         // add task
@@ -60,7 +60,7 @@ namespace Mission8Assignment.Controllers
                 );
 
                 // show hydrated form
-                return View(task);
+                return View("Task", task);
             }
         }
 
