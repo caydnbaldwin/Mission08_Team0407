@@ -1,28 +1,34 @@
 ﻿@model TaskModel
 
 @{
-    ViewData["Title"] = "Edit Task";
+    ViewData["Title"] = "Add / Edit Task";
 }
 
 <div class="row justify-content-center">
     <div class="col-md-6">
 
-        <h2 class="mb-4">Edit Task</h2>
+        <h2 class="mb-4">
+            @(Model?.TaskId == 0 ? "Add Task" : "Edit Task")
+        </h2>
 
-        <form method="post" asp-action="Edit">
+        <form method="post">
 
+            <!-- Required for EDIT to work -->
             <input type="hidden" asp-for="TaskId" />
 
+            <!-- Task -->
             <div class="mb-3">
                 <label class="form-label">Task</label>
                 <input asp-for="TaskName" class="form-control" required />
             </div>
 
+            <!-- Due Date -->
             <div class="mb-3">
                 <label class="form-label">Due Date</label>
                 <input asp-for="DueDate" type="date" class="form-control" />
             </div>
 
+            <!-- Quadrant -->
             <div class="mb-3">
                 <label class="form-label">Quadrant</label>
                 <select asp-for="Quadrant" class="form-select" required>
@@ -34,6 +40,7 @@
                 </select>
             </div>
 
+            <!-- Category (from DB via controller) -->
             <div class="mb-3">
                 <label class="form-label">Category</label>
                 <select asp-for="CategoryId"
@@ -43,13 +50,14 @@
                 </select>
             </div>
 
+            <!-- Completed -->
             <div class="form-check mb-3">
                 <input asp-for="Completed" class="form-check-input" />
                 <label class="form-check-label">Completed</label>
             </div>
 
             <button type="submit" class="btn btn-primary">
-                Update Task
+                Save Task
             </button>
 
         </form>
