@@ -6,20 +6,14 @@ namespace Mission8Assignment.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        private IToDoRepository _repo;
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        public HomeController(IToDoRepository temp) => _repo = temp;
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpGet]
+        public IActionResult Index() 
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+            ViewBag.Tasks = _repo.Tasks
+        };
     }
 }
