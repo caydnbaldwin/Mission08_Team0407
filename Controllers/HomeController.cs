@@ -14,6 +14,11 @@ namespace Mission8Assignment.Controllers
         public IActionResult Index() 
         {
             ViewBag.Tasks = _repo.Tasks
-        };
+                .Where(task => task.Completed == false)
+                .OrderBy(task => task.TaskId)
+                .ToList();
+
+            return View();
+        }
     }
 }
