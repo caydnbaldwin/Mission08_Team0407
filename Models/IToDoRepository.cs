@@ -7,6 +7,6 @@ namespace Mission8Assignment.Models
 
         void AddTask(TaskModel task);
         void UpdateTask(TaskModel task);
-        void DeleteTask(int taskId);
+        void DeleteTask(TaskModel task);
     }
 }

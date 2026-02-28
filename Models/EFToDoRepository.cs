@@ -24,14 +24,10 @@ namespace Mission8Assignment.Models
             _context.SaveChanges();
         }
 
-        public void DeleteTask(int taskId)
+        public void DeleteTask(TaskModel task)
         {
-            var task = _context.Tasks.Find(taskId);
-            if (task != null)
-            {
-                _context.Tasks.Remove(task);
-                _context.SaveChanges();
-            }
+            _context.Tasks.Remove(task);
+            _context.SaveChanges();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Mission8Assignment.Controllers
         public HomeController(IToDoRepository temp) => _repo = temp;
 
         [HttpGet]
-        public IActionResult Index() 
+        public IActionResult Index()
         {
             ViewBag.Tasks = _repo.Tasks
                 .Where(task => task.Completed == false)
@@ -38,9 +38,66 @@ namespace Mission8Assignment.Controllers
             if (ModelState.IsValid)
             {
                 _repo.AddTask(task);
-            }
 
-            return RedirectToAction()
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.Categories = new SelectList(
+                    _repo.Categories.OrderBy(category => category.CategoryId)
+                );
+
+                return View();
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            TaskModel taskToEdit = _repo.Tasks
+                .Single(task => task.TaskId == id);
+
+            ViewBag.Categories = new SelectList(
+                _repo.Categories.OrderBy(category => category.CategoryId)
+            );
+
+            return View(taskToEdit);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(TaskModel task)
+        {
+            if (ModelState.IsValid)
+            {
+                _repo.UpdateTask(task);
+
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.Categories = new SelectList(
+                    _repo.Categories.OrderBy(category => category.CategoryId)
+                );
+
+                return View(task);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            TaskModel taskToDelete = _repo.Tasks
+                .Single(task => task.TaskId == id);
+
+            return View(taskToDelete);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(TaskModel task)
+        {
+            _repo.DeleteTask(task);
+
+            return RedirectToAction("Index");
         }
     }
 }
