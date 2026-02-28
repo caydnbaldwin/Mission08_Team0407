@@ -31,5 +31,16 @@ namespace Mission8Assignment.Controllers
 
             return View(new TaskModel());
         }
+
+        [HttpPost]
+        public IActionResult Task(TaskModel task)
+        {
+            if (ModelState.IsValid)
+            {
+                _repo.AddTask(task);
+            }
+
+            return RedirectToAction()
+        }
     }
 }
